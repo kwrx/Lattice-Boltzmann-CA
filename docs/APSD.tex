@@ -205,8 +205,8 @@ Infine, l'algoritmo si sviluppa principalmente in tre fasi:
 
 \begin{enumerate}
     \item \textbf{Collisione.} Per ogni nodo locale, eseguo i calcoli di \ref{sec:alg}
-    \item \textbf{Scorrimento Locale.} Per ogni nodo primario locale, ossia con \verb|local_rank = 0| applico lo scorrimento descritto in \ref{sec:alg} accedendo alle aree condivise di memoria degli altri nodi locali appartenenti allo stesso gruppo \verb|MPI_COMM_LOCAL|
-    \item \textbf{Scorrimento Globale.} Per ogni nodo primario locale, utilizzo le routine \verb|MPI_Send/MPI_Recv| al fine di ottenere le \textit{Ghost Cells} adiacenti del \verb|MPI_COMM_WORLD| ed applicare a quest'ultime lo scorrimento dei reticoli.
+    \item \textbf{Scorrimento Locale.} Per ogni nodo locale applico lo scorrimento descritto in \ref{sec:alg} accedendo alle aree condivise di memoria degli altri nodi locali appartenenti allo stesso gruppo \verb|MPI_COMM_LOCAL|
+    \item \textbf{Scorrimento Globale.} Per ogni nodo locale adiacente ad un altro \verb|MPI_COMM_LOCAL| esterno, utilizzo le routine \verb|MPI_Send/MPI_Recv| al fine di ottenere le \textit{Ghost Cells} ed applicare a quest'ultime lo scorrimento dei reticoli.
 \end{enumerate}
 
 \subsubsection{Vantaggi}
@@ -359,7 +359,7 @@ L'entità che descrive il reticolo di Boltzmann è definita come \verb|struct un
 
 
 \subsection{Avvio}
-All'avvio il nodo primario globale alloca le strutture di cui necessita per il disegno e inizializza \verb|Allegro|, istanzia una finestra ed effettua il polling degli eventi, gestendo grafica e input utente.
+All'avvio, il nodo primario globale, ossia con \verb|world_rank = 0| alloca le strutture di cui necessita per il disegno e inizializza \verb|Allegro|, istanzia una finestra ed effettua il polling degli eventi, gestendo grafica e input utente.
 In seguito, ogni nodo, dopo aver istanziato le entità di MPI, da inizio all'esecuzione dell'algoritmo descritto in \ref{sec:alg}.
 Il fluido, inizialmente è in uno stato di quiete, ovvero di equilibrio termico. Non appena l'utente disegna, alterando la morfologia delle condizioni a contorno, avviene la destabilizzazione del fluido stesso, portando a tale risultato:
 
@@ -461,4 +461,3 @@ Questo è un esempio di topologia dove sono presenti due \verb|MPI_COMM_LOCAL| e
 \end{center}
 
 \end{document}
- 

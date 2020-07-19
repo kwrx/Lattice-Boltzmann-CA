@@ -1309,7 +1309,7 @@ int main(int argc, char** argv) {
             for(auto y = 1; y < LOCAL_HEIGHT - 1; y++) {
 
                 units[XY(x, y, LOCAL_WIDTH)].curl = (units[XY(x + 1, y, LOCAL_WIDTH)].u.y() - units[XY(x - 1, y, LOCAL_WIDTH)].u.y()) 
-                                                    - (units[XY(x, y + 1, LOCAL_WIDTH)].u.x() - units[XY(x, y - 1, LOCAL_WIDTH)].u.x());
+                                                  - (units[XY(x, y + 1, LOCAL_WIDTH)].u.x() - units[XY(x, y - 1, LOCAL_WIDTH)].u.x());
 
             }
         }
@@ -1317,7 +1317,7 @@ int main(int argc, char** argv) {
         for(auto y = 1; y < LOCAL_HEIGHT - 1; y++) {
 
             units[XY(0, y, LOCAL_WIDTH)].curl = (units[XY(1, y, LOCAL_WIDTH)].u.y()     - units[XY(0, y, LOCAL_WIDTH)].u.y())
-                                                - (units[XY(0, y - 1, LOCAL_WIDTH)].u.x() - units[XY(0, y + 1, LOCAL_WIDTH)].u.x());
+                                              - (units[XY(0, y - 1, LOCAL_WIDTH)].u.x() - units[XY(0, y + 1, LOCAL_WIDTH)].u.x());
 
 
             units[XY(LOCAL_WIDTH - 1, y, LOCAL_WIDTH)].curl = (units[XY(LOCAL_WIDTH - 1, y, LOCAL_WIDTH)].u.y()     - units[XY(LOCAL_WIDTH - 2, y, LOCAL_WIDTH)].u.y())
@@ -1337,19 +1337,19 @@ int main(int argc, char** argv) {
 
 
                         units[XY(x, y - 1, LOCAL_WIDTH)].nS += units[XY(x, y, LOCAL_WIDTH)].nN;
-                                                                units[XY(x, y, LOCAL_WIDTH)].nN = 0;
+                                                               units[XY(x, y, LOCAL_WIDTH)].nN = 0;
 
 
                         units[XY(x, y + 1, LOCAL_WIDTH)].nN += units[XY(x, y, LOCAL_WIDTH)].nS;
-                                                                units[XY(x, y, LOCAL_WIDTH)].nS = 0;
+                                                               units[XY(x, y, LOCAL_WIDTH)].nS = 0;
 
 
                         units[XY(x - 1, y, LOCAL_WIDTH)].nW += units[XY(x, y, LOCAL_WIDTH)].nE;
-                                                                units[XY(x, y, LOCAL_WIDTH)].nE = 0;
+                                                               units[XY(x, y, LOCAL_WIDTH)].nE = 0;
 
 
                         units[XY(x + 1, y, LOCAL_WIDTH)].nE += units[XY(x, y, LOCAL_WIDTH)].nW;
-                                                                units[XY(x, y, LOCAL_WIDTH)].nW = 0;
+                                                               units[XY(x, y, LOCAL_WIDTH)].nW = 0;
 
 
 
