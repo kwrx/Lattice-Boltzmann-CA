@@ -1,0 +1,49 @@
+language: generic
+os: linux
+dist: bionic
+
+jobs:
+  include:
+    - os: linux
+      env:
+        - HOST="x86_64"
+
+addons:
+  apt:
+    packages:
+      - liballegro5-dev
+      - liballegro-acodec5-dev
+      - liballegro-audio5-dev
+      - liballegro-image5-dev
+      - liballegro-dialog5-dev
+      - liballegro-ttf5-dev
+      - liballegro-physfs5-dev
+      - liballegro-video5-dev
+
+script:
+  make HOST=${HOST} dist
+
+
+
+
+
+before_deploy:
+  - git config --local user.name "Antonino Natale"
+  - git config --local user.email "antonio.natale97@hotmail.com"
+  - export TRAVIS_TAG=v1.0.$(git rev-parse --short HEAD)
+  - git tag $TRAVIS_TAG
+
+deploy:
+  provider: releases
+  token:
+    "$GH_TOKEN"
+  file:
+    ${HOST}-Lattice-Boltzmann-CA.tar-$TRAVIS_TAG.tar.xz
+
+  overwrite: true
+  draft: false
+  edge: true
+
+  on:
+    repo: kwrx/Lattice-Boltzmann-CA
+    tags: false

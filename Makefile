@@ -30,7 +30,9 @@ run: $(OUTPUT)
 	chmod +x $<
 	mpirun -np $(NPROCS) --oversubscribe $<
 
-
 run-nompi: $(OUTPUT)
 	chmod +x $<
 	./$<
+
+dist: $(TARGET)
+	tar cJf $(HOST)-Lattice-Boltzmann-CA-v1.0.$(shell git rev-parse --short HEAD).tar.xz $(TARGET)
