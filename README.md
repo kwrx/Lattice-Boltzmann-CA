@@ -17,5 +17,5 @@ Remake of the Lattice Boltzmann CA, a popular cellular automata, developed using
 
 :books: **Paper:** [HERE](docs/APSD.pdf)
 
-![Lattice-Boltzmann-CA - Screenshot](/docs/anim.png)
+![Lattice-Boltzmann-CA - Screenshot](/docs/anim.gif)
 
