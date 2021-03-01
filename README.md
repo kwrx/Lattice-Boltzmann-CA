@@ -1,6 +1,6 @@
 # Lattice-Boltzmann Fluid Dynamics
 [![Build Status](https://travis-ci.com/kwrx/Lattice-Boltzmann-CA.svg?branch=master)](https://travis-ci.com/kwrx/Lattice-Boltzmann-CA)
-
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](/LICENSE)
 
 
 ### How to run?
