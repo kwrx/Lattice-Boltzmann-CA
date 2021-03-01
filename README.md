@@ -21,6 +21,6 @@ Remake of the Lattice Boltzmann CA, a popular cellular automata, developed using
 
 ## License
 
-Copyright (c) Bioagri S.r.l.s. All rights reserved.
+Copyright (c) Antonino Natale. All rights reserved.
 
 Licensed under the [MIT](/LICENSE) license.
